@@ -1,0 +1,18 @@
+table{
+  position: relative;
+  left: 150px;
+  justify-content: center;
+  width: 70%;
+  /* height: 100%; */
+  /* border-top: 1px solid black; */
+}
+th {
+  border-bottom: 1px solid black;
+  width: 15%;
+  height: 70px;
+}
+td {
+  text-align: center;
+  width: 40%;
+  /* padding-left: 50px; */
+}
