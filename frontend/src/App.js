@@ -3,18 +3,18 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'; //
 
 // import { AuthProvider } from './login/components/AuthProvider';
 // import Navbar from './login/components/NavBar';
-import Main from './Home';
-
-// const links = [
-//   { href: '/my', title: 'Go to My Page' },
-//   { href: '/login', title: 'Go to login' },
-//   { href: '/', title: 'Go to index' },
-// ];
+import Home from './Home';
+import Main from './Main';
+import PastExam from './PastExam';
 
 function App() {
   return (
     <BrowserRouter>
-      <Main />
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/main" element={<Main />}/>
+        <Route path="/callPastExam" element={<PastExam />} />
+      </Routes>
     </BrowserRouter>
   );
 }

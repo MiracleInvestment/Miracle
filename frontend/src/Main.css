@@ -1,0 +1,28 @@
+#normal {
+  width: 300px;
+  height: 200px;
+  /* background-color: aliceblue; */
+  text-align: center;
+  font-size: 20px;
+  line-height: 200px;
+  transition-property: width, height;
+  transition-duration: 1s, 1s;
+  margin-right: 50px;
+  border-radius: 15px;
+  border: 3px solid black;
+  box-shadow: 5px 5px 5px gray;
+  /* opacity: 0.5; */
+}
+
+.basic {
+  display: flex;
+  position: relative;
+  top: 400px;
+  left: 400px;
+}
+
+.expand {
+  background-color: #bbccdd;
+  /* width: 450px; */
+  /* opacity: 1; */
+}

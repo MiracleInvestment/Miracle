@@ -5,7 +5,7 @@ services:
     build:
       context: frontend/.
       dockerfile: Dockerfile
-    container_name: my-web-frontend
+    container_name: miracle-frontend
     tty: true
     ports:
       - 3000:3000
@@ -18,7 +18,7 @@ services:
     build:
       context: backend/.
       dockerfile: Dockerfile
-    container_name: my-web-backend
+    container_name: miracle-backend
     tty: true
     ports:
       - 8000:8000

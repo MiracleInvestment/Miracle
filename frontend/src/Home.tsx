@@ -18,7 +18,7 @@ export default function Home() {
       </ScrollLeftAnimationContainer>
       <ScrollRightAnimationContainer>
         <h1> 온라인 서술형 자동 채점 시스템, Miracle </h1>
-        <Link to="/login">시작하기</Link>
+        <Link to="/main">시작하기</Link>
       </ScrollRightAnimationContainer>
     </>
   );
