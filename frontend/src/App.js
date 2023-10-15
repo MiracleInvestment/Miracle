@@ -16,6 +16,8 @@ function App() {
         <Route path="/main" element={<Main />}/>
         <Route path="/callPastExam" element={<PastExam />} />
         <Route path="/detailExam" element={<DetailExam />} />
+        <Route path="/scoring" element={<Scoring />} />
+        <Route path="/result" element={<Result />} />
       </Routes>
     </BrowserRouter>
   );
