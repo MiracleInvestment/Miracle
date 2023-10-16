@@ -23,12 +23,12 @@ app.add_middleware(
 
 db: List[User] = [
     User(
-        id = UUID("f8ea8622-b08e-4ed7-99eb-bf2b68f67ebc"),
+        id = 1,
         title = "2023학년도 1학기 컴퓨터네트워킹 중간고사",
         createdAt = "2023-04-23"
     ),
     User(
-        id = UUID("f8ea8622-b08e-4ed7-99eb-bf2b68f67ebc"),
+        id = 2,
         title = "2023학년도 1학기 객체지향설계와패턴 중간고사",
         createdAt = "2023-04-24"
     )
@@ -40,4 +40,8 @@ def read_root():
 
 @app.get("/api/lists")
 async def fetch_lists():
+    return db
+
+@app.get("/api/${id}")
+async def detail_examInfo():
     return db

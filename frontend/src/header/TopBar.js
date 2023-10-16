@@ -19,7 +19,8 @@ function TopBar() {
         <FontAwesomeIcon icon={!isToggled ? faBars : faTimes} />
       </div>
       <div className="logo">
-        <Link to='/main'>Miracle</Link>
+        {/* <Link to='/main'>Miracle</Link> */}
+        Miracle
       </div>
       <div
         className="user"
@@ -44,8 +45,6 @@ export default TopBar;
 
 const Header = styled.div`
   max-width: 100%;
-  // height: 100px;
-  // line-height: 100px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;

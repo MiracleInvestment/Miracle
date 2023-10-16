@@ -1,0 +1,10 @@
+.desc {
+  justify-content: center;
+}
+.question{
+  position: relative;
+  left: 150px;
+  top: 30px;
+  font-size: 20px;
+  font-weight: bold;
+}

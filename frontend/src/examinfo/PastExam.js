@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
-import Table from './table/Table';
-import TableRow from './table/TableRow';
-import TableColumn from './table/TableColumn';
-
-import TopBar from './TopBar';
+import Table from '../table/Table';
+import TableRow from '../table/TableRow';
+import TableColumn from '../table/TableColumn';
+import TopBar from '../header/TopBar';
+// import TableColumnNo from '../table/TableColumNo';
 
 function GetData() {
   const [data, setData] = useState({});
@@ -17,7 +18,7 @@ function GetData() {
   const item = (Object.values(data)).map((item) => (
     <TableRow key={item.id}>
       <TableColumn>{item.id}</TableColumn>
-      <TableColumn>{item.title}</TableColumn>
+      <TableColumn><Link to={`/detailExam/${item.id}`}>{item.title}</Link></TableColumn>
       <TableColumn>{item.createdAt}</TableColumn>
       {/* <TableColumn>{item.id}</TableColumn> */}
     </TableRow>
@@ -33,6 +34,7 @@ const PastExam = props => {
   return(
     <div>
       <TopBar />
+      <h2>시험 목록</h2>
       <Table headerName={['No.', '시험 제목', '게시 일자']}>
         {item}
       </Table>

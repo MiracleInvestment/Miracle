@@ -1,0 +1,87 @@
+#normal {
+  width: 300px;
+  height: 200px;
+  /* background-color: aliceblue; */
+  text-align: center;
+  font-size: 20px;
+  line-height: 200px;
+  transition-property: width, height;
+  transition-duration: 1s, 1s;
+  margin-right: 50px;
+  border-radius: 15px;
+  border: 3px solid black;
+  box-shadow: 5px 5px 5px gray;
+  /* opacity: 0.5; */
+}
+#normal2 {
+  width: 300px;
+  height: 200px;
+  /* background-color: aliceblue; */
+  text-align: center;
+  font-size: 20px;
+  line-height: 200px;
+  transition-property: width, height;
+  transition-duration: 1s, 1s;
+  border-radius: 15px;
+  border: 3px solid black;
+  box-shadow: 5px 5px 5px gray;
+}
+.basic {
+  display: flex;
+  position: relative;
+  top: 80px;
+  justify-content: center;
+}
+.expand {
+  background-color: #bbccdd;
+  /* width: 450px; */
+  /* opacity: 1; */
+}
+.mainDesign{
+  /* background-color: #bbccdd; */
+  height: 500px;
+  position: relative;
+  box-shadow: 0px 5px gray;
+  background: url('../../../assets/student.png');
+  /* opacity: 0.3; */
+  background-size: cover;
+  /* display: inline-block; */
+}
+.mainDesign::before{
+  content: "";
+  opacity: 0.2;
+  position: absolute;
+  top:0px;
+  left:0px;
+  right:0px;
+  bottom:0px;
+  /* background-color: #000; */
+  background-color: #fff;
+}
+body {
+  margin: 0px;
+}
+.top1, .top2, .top3 {
+  display: flex;
+  justify-content: center;
+}
+.top1{
+  /* display: flex; */
+  font-size: 100px;
+  /* margin: 30px 0px 50px 0px; top right bottom left */
+  padding-top: 130px;
+  margin-bottom: 50px;
+  /* justify-content: center; */
+  /* color: white; */
+}
+.top2{
+  /* display: flex; */
+  /* justify-content: center; */
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+.top3{
+  /* display: flex; */
+  /* justify-content: center; */
+  color: rgb(159, 158, 158);
+}

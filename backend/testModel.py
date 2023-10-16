@@ -3,6 +3,6 @@ from uuid import UUID, uuid4
 from pydantic import BaseModel
 
 class User(BaseModel):
-  id: Optional[UUID] = uuid4()
+  id: int
   title: str
   createdAt: str

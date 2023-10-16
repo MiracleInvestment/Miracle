@@ -3,10 +3,10 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'; //
 
 // import { AuthProvider } from './login/components/AuthProvider';
 // import Navbar from './login/components/NavBar';
-import Home from './Home';
+import Home from './scrollanimation/Home';
 import Main from './Main';
-import PastExam from './PastExam';
-import DetailExam from './DetailExam';
+import PastExam from './examinfo/PastExam';
+import DetailExam from './examinfo/DetailExam';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <Route path="/" element={<Home />}/>
         <Route path="/main" element={<Main />}/>
         <Route path="/callPastExam" element={<PastExam />} />
-        <Route path="/detailExam" element={<DetailExam />} />
+        <Route path="/detailExam/:id" element={<DetailExam />} />
       </Routes>
     </BrowserRouter>
   );
