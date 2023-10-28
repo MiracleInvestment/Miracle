@@ -13,7 +13,7 @@ const TabMenu = styled.ul`
   align-items: center;
   list-style: none;
   // margin-bottom: 7rem;
-  margin: 50px 0px 0px 200px;
+  margin: 50px 0px 0px 150px;
   // margin-left: 150px;
   border-radius: 10px 10px 0px 0px;
   // border: 1px solid black;
@@ -29,14 +29,15 @@ const TabMenu = styled.ul`
     font-size: 15px;
     transition: 0.5s;
     border-radius: 10px 10px 0px 0px;
-    border: 1px solid black;
-    border-bottom: none;
+    border: none;
     text-align: center;
   }
 
   .focused {
    //선택된 Tabmenu 에만 적용되는 CSS를 구현
     background-color: aliceblue;
+    //border: 1px solid black;
+    border-bottom: none;
     color: rgb(21,20,20);
   }
 

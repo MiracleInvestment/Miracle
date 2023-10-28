@@ -2,8 +2,8 @@ import TopBar from "../header/TopBar";
 import Tab from "./Tab";
 import '../css/DetailExam.css'
 // import { useParams } from "react-router-dom";
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+// import { useState, useEffect } from 'react';
+// import axios from 'axios';
 
 const DetailExam = ({id}) =>  {
   // const { examId } = useParams();
