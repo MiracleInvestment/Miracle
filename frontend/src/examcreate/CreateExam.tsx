@@ -95,7 +95,9 @@ function CreateExam() {
                       placeholder="시험 이름을 입력하세요"
                       className="form-control"
                     />
-                    <button onClick={handleNameButton}>확인</button>
+                    {/* <div className='container'></div> */}
+                    <button className="btn btn-dark rounded-pill px-3" type="button" onClick={handleNameButton}>확인</button>
+                    {/* <button onClick={handleNameButton}>확인</button> */}
                   </div>
                   ) : (
                   <div>

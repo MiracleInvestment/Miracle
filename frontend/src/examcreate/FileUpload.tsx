@@ -78,7 +78,8 @@ function FileUpload({ name }: FileUploadProps) {
       {showUploadButton && (
         <div>
           <input type="file" onChange={handleFileChange} />
-          <button onClick={handleUpload}>파일 업로드</button>
+          <button className="btn btn-success rounded-pill px-3" type="button" onClick={handleUpload}>파일 업로드</button>
+          {/* <button onClick={handleUpload}>파일 업로드</button> */}
         </div>
       )}
     </>

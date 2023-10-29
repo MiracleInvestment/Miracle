@@ -21,11 +21,11 @@ h2 {
   text-align: center;
   font-size:40px;
 }
-hr {
+/* hr {
   width: 80%;
   height: 3px;
   background-color: black;
-}
+} */
 
 .score {
   display:flex;
