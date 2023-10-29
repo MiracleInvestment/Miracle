@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import '../dist/css/bootstrap.min.css';
 
 const JumboTron = ({no, title, date}) => {
-  const uri = `/detailExam/${no}`
+  // const uri = `/detailExam/${no}`
   return (
     <div className="container my-5">
       <div className="p-5 text-center bg-body-tertiary rounded-3">

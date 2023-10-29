@@ -1,6 +1,6 @@
 // import TopBar from "../header/TopBar";
 import { Link } from 'react-router-dom';
-import Tab from "./Tab";
+// import Tab from "./Tab";
 // import '../css/DetailExam.css'
 import '../dist/css/bootstrap.min.css';
 import Footer from '../header/Footer';
