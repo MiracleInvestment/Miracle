@@ -19,7 +19,10 @@ function CreateExam() {
   };
 
   const handleSubmit = () => {
-
+    // 시험 생성하기 버튼을 누르면 동작
+    // 1. 채점이 완료될 때까지 로딩? 화면
+    // 2. 채점이 완료되면 완료되었다는 화면과 학생들 성적을 보여줘야 함
+    // 3. ..
   }
 
   const handleNameButton = () => {
