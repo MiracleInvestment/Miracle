@@ -4,6 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+sqlalchemy = "*"
+uvicorn = {extras = ["standard"], version = "*"}
 
 [dev-packages]
 

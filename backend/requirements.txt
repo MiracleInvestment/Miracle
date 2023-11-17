@@ -1,0 +1,4 @@
+fastapi
+sqlalchemy==1.4.26
+uvicorn
+pymysql
