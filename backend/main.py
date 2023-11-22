@@ -1,8 +1,11 @@
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI
 from routes.test import router as test_router
+from routes.exam import ex_router
 
 app = FastAPI()
 app.include_router(test_router)
+app.include_router(ex_router)
 
 @app.get("/")
 def read_root():
@@ -12,18 +15,18 @@ def read_root():
 # session = engine.sessionmaker()
 
 # Define the list of allowed origins (replace with your frontend's URL)
-# origins = [
-#     "http://localhost:3000",  # Allow requests from your frontend
-# ]
+origins = [
+    "http://localhost:3000",  # Allow requests from your frontend
+]
 
-# # Configure CORS middleware
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=origins,
-#     allow_credentials=True,
-#     allow_methods=["GET", "POST", "PUT", "DELETE"],
-#     allow_headers=["*"],
-# )
+# Configure CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "DELETE"],
+    allow_headers=["*"],
+)
 # DB_URL = 'mysql+pymysql://tkdalsss:tkdalsss!@34.64.146.223:3306/user'
 # app.add_middleware(DBSessionMiddleware, db_url=DB_URL)
 

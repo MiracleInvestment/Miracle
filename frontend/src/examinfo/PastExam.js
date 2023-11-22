@@ -12,11 +12,20 @@ import Album from '../header/Album';
 import Footer from '../header/Footer';
 
 function GetData() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
   useEffect(() => {
-    axios.get('http://localhost:8000/api/lists').then((response) => {
-      setData(response.data);
+    axios.get('http://localhost:8000/api/Examlists')
+    .then((response) => {
+      if(response.status !== 200) {
+        throw new Error('Network response was not ok');
+      } else {
+        // console.log(response.data);
+        setData(response.data);
+      }
     })
+    .catch(error => {
+      console.error('Error:', error.message);
+    });
   }, []);
 
   // const item = (Object.values(data)).map((item) => (

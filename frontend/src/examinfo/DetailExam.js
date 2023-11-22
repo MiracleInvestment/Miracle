@@ -1,13 +1,9 @@
-// import TopBar from "../header/TopBar";
-import { Link } from 'react-router-dom';
-// import Tab from "./Tab";
+// import { useParams } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import '../css/DetailExam.css';
 import '../dist/css/bootstrap.min.css';
 import Footer from '../header/Footer';
 import JumboTron from '../header/JumboTron';
-// import { useParams } from "react-router-dom";
-// import { useState, useEffect } from 'react';
-// import axios from 'axios';
 
 const DetailExam = ({id}) =>  {
   // const { examId } = useParams();
@@ -17,6 +13,10 @@ const DetailExam = ({id}) =>  {
   //     setData(response.data);
   //   })
   // }, []);
+
+  const params = useParams();
+  const scoreUri = `/detailExam/${params.id}/studentScores`;
+  // console.log(scoreUri);
 
   return (
     <>
@@ -37,17 +37,17 @@ const DetailExam = ({id}) =>  {
       </div>
       <div className='col-lg-8 mx-auto p-4 py-md-5'>
         {/* 시험 이름, 날짜, 응시인원도 db 에서 불러오는 거로 변경해야 함 */}
-        <h1 class="text-body-emphasis">2023-1학기 컴퓨터네트워킹 중간고사</h1>
+        <h1 className="text-body-emphasis">2023-1학기 컴퓨터네트워킹 중간고사</h1>
         <span className="badge bg-primary-subtle text-primary-emphasis rounded-pill">2023-04-23</span>
         <span className="badge bg-warning-subtle text-warning-emphasis rounded-pill">39명 응시</span>
         {/* <p class="fs-5 col-md-8">2023-04-23</p>
         <p class="fs-5 col-md-8">시험 응시 인원: 39명</p> */}
-        <div class="b-example-divider"></div>
-        <p class="fs-5 col-md-15">2023년 4월 23일에 시행된 2023학년도 1학기 컴퓨터네트워킹 중간고사에 관한 정보입니다.</p>
+        <div className="b-example-divider"></div>
+        <p className="fs-5 col-md-15">2023년 4월 23일에 시행된 2023학년도 1학기 컴퓨터네트워킹 중간고사에 관한 정보입니다.</p>
         {/* <div class="mb-5">
           <a href="../examples/" class="btn btn-primary btn-lg px-4">Download examples</a>
         </div> */}
-        <hr class="col-3 col-md-2 mb-5" />
+        <hr className="col-3 col-md-2 mb-5" />
         <div className='row g-5'>
           <div className='col-md-6'>
             <h2 className="text-body-emphasis">시험 문제</h2>
@@ -60,9 +60,12 @@ const DetailExam = ({id}) =>  {
           </div>
           <div className='col-md-6'>
             <h2 className="text-body-emphasis">학생들 성적 확인</h2>
-            <p>학생들 성적 정보를 다운로드 하실 수 있습니다.</p>
-            <div class="mb-5">
-              <a href="../examples/" class="btn btn-primary btn-lg px-4">다운로드</a>
+            <p>학생들 성적 정보 확인 및 다운로드 할 수 있습니다.</p>
+            <div className="mb-5">
+              {/* <button className="btn btn-primary btn-lg px-4">성적확인</button> */}
+              <a href={scoreUri} className="btn btn-primary btn-lg px-4 me-4">성적확인</a>
+              {/* <div className=""></div> */}
+              <a href="../examples/" className="btn btn-primary btn-lg px-4">다운로드</a>
             </div>
           </div>
         </div>

@@ -8,6 +8,7 @@ import PastExam from './examinfo/PastExam';
 import DetailExam from './examinfo/DetailExam';
 import CreateExam from './examcreate/CreateExam';
 import Result from './examcreate/Result';
+import StudentScore from './examinfo/StudentScore';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Route path="/main" element={<Main />}/>
         <Route path="/callPastExam" element={<PastExam />} />
         <Route path="/detailExam/:id" element={<DetailExam />} />
-        <Route path="/detailExam" element={<DetailExam />} />
+        <Route path="/detailExam/:id/studentScores" element={<StudentScore />} />
         <Route path="/createExam" element={<CreateExam />} />
         <Route path="/result" element={<Result />} />
       </Routes>

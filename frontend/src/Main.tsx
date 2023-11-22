@@ -36,7 +36,7 @@ export default function Main(){
     <>
     <div className="container py-4">
       <header className="pb-3 mb-4 border-bottom">
-        <a href="/" className="d-flex align-items-cneter text-body-emphasis text-decoration-none">
+        <a href="/main" className="d-flex align-items-cneter text-body-emphasis text-decoration-none">
           <span className="fs-4">Miracle</span>
         </a>
       </header>
@@ -59,7 +59,7 @@ export default function Main(){
         <div className="col-md-6">
           <div className="h-100 p-5 bg-body-tertiary border rounded-3">
             <h2>시험 불러오기</h2>
-            <p></p>
+            <p>이전에 생성했던 시험 목록을 확인할 수 있습니다. 다양한 기능도 확인해보세요!</p>
             <button className="btn btn-outline-secondary" type="button" onClick={pastExam}>불러오기</button>
           </div>
         </div>
