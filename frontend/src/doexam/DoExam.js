@@ -10,7 +10,7 @@ import axios from 'axios';
 import '../dist/css/bootstrap.min.css';
 import Album from '../header/Album';
 import Footer from '../header/Footer';
-import { Container, ListGroup, Card, Form } from 'react-bootstrap';
+import { Container, ListGroup, Card, Form, Button } from 'react-bootstrap';
 
 
 function GetData() {
@@ -35,6 +35,10 @@ function GetData() {
   }, []);
   
   return data;
+}
+
+function handleSubmit() {
+  return 0;
 }
 
 const DoExam = props => {
@@ -83,9 +87,14 @@ const DoExam = props => {
           </ListGroup.Item>
         ))}
       </ListGroup>
+      <Card.Footer className="text-center">
+          <Button variant="primary" className="w-100">제출하기</Button>
+        </Card.Footer>
     </Card>
+    <Footer />
+
    </Container>
-    </>
+  </>
     
 
   );
