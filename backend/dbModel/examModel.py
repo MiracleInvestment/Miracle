@@ -1,10 +1,26 @@
-from sqlalchemy import Column, DateTime, Integer, VARCHAR
-from sqlalchemy.sql import text
+from sqlalchemy import Column, Integer, DateTime, String, Text, ForeignKey
+# from sqlalchemy.sql import text
 from db.session import Base
+from sqlalchemy.orm import relationship
 
 class Exam(Base):
   __tablename__ = "exam"
   
-  id = Column(Integer, primary_key=True, index=True)
-  title = Column(VARCHAR, nullable=False)
-  createdAt = Column(DateTime, nullable=False, server_default=text("(CURRENT_TIMESTAMP)"))
+  ExamID = Column(Integer, primary_key=True, autoincrement=True)
+  ExamName = Column(String, index=True)
+  ExamStartDate = Column(DateTime)
+  ExamEndDate = Column(DateTime)
+  
+  # questions = relationship("ExamQuestion", back_populates="exam")
+  
+class ExamQuestion(Base):
+  __tablename__ = "exam_question"
+  
+  QuestionID = Column(Integer, primary_key=True, autoincrement=True)
+  ExamID = Column(Integer)
+  QuestionText = Column(String)
+  ModelAnswer = Column(String)
+  Keywords = Column(String)
+  
+  # exam = relationship("Exam", back_populates="questions")
+  

@@ -5,6 +5,8 @@ import '../css/Album.css';
 const Album = ({no, title, date}) => {
   
   const uri = `/detailExam/${no}`;
+  // const format = date.toISOstring().split('T')[0];
+  const format = date.split('T')[0];
 
   return (
     <div className="col">
@@ -19,7 +21,7 @@ const Album = ({no, title, date}) => {
                 <Link to={uri} style={{textDecoration:"none", color:"black"}}>상세 정보 보기</Link>
               </button>
             </div>
-            <small className="text-body-secondary">{date}</small>
+            <small className="text-body-secondary">{format}</small>
           </div>
         </div>
       </div>

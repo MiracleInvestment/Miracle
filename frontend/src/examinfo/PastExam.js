@@ -1,12 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-// import Table from '../table/Table';
-// import TableRow from '../table/TableRow';
-// import TableColumn from '../table/TableColumn';
-// import TopBar from '../header/TopBar';
-// import TableColumnNo from '../table/TableColumNo';
-// import JumboTron from '../header/JumboTron';
 import '../dist/css/bootstrap.min.css';
 import Album from '../header/Album';
 import Footer from '../header/Footer';
@@ -14,12 +8,11 @@ import Footer from '../header/Footer';
 function GetData() {
   const [data, setData] = useState([]);
   useEffect(() => {
-    axios.get('http://localhost:8000/api/Examlists')
+    axios.get('http://localhost:8000/exam/lists')
     .then((response) => {
       if(response.status !== 200) {
         throw new Error('Network response was not ok');
       } else {
-        // console.log(response.data);
         setData(response.data);
       }
     })
@@ -27,15 +20,6 @@ function GetData() {
       console.error('Error:', error.message);
     });
   }, []);
-
-  // const item = (Object.values(data)).map((item) => (
-  //   <TableRow key={item.id}>
-  //     <TableColumn>{item.id}</TableColumn>
-  //     <TableColumn><Link to={`/detailExam/${item.id}`}>{item.title}</Link></TableColumn>
-  //     <TableColumn>{item.createdAt}</TableColumn>
-  //     {/* <TableColumn>{item.id}</TableColumn> */}
-  //   </TableRow>
-  // ));
 
   return data;
 }
@@ -70,7 +54,7 @@ const PastExam = props => {
         <div className='container'>
           <div className='row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3'>
             {(Object.values(items)).map((item) => (
-              <Album no={item.id} title={item.title} date={item.createdAt} />
+              <Album no={item.ExamID} title={item.ExamName} date={item.ExamStartDate} />
             ))}
           </div>
         </div>

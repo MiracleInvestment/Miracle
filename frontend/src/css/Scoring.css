@@ -23,6 +23,12 @@
   width:100%;
   display: flex;
 }
+.example-color{
+  --bs-text-opacity: 1;
+  /* color: var(--bs-secondary-color)!important; */
+  /* color: #BDBDBD;  */
+  color: #a4a4a4;
+}
 /* .example-custom-input {
   background-color: #282c34;
   color: white;
