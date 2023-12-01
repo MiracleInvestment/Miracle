@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../dist/css/bootstrap.min.css';
 import Album from '../header/Album';
 import Footer from '../header/Footer';
+import Header from '../header/Header2';
 
 function GetData() {
   const [data, setData] = useState([]);
@@ -31,21 +32,12 @@ const PastExam = props => {
 
   return(
     <>
-    <header className="d-flex justify-content-center py-3">
-      <ul className="nav nav-pills">
-          {/* <li className="nav-item"><a href="#" className="nav-link">Home</a></li> */}
-        <li className="nav-item"><Link to='/main' className='nav-link'>Home</Link></li> 
-        <li className="nav-item"><Link to='/createExam' className="nav-link">시험 생성하기</Link></li>
-        <li className="nav-item"><Link to='/callPastExam' className="nav-link active" aria-current="page">시험 불러오기</Link></li>
-        <li className="nav-item"><Link to='/' className="nav-link">FAQ</Link></li>
-        <li className="nav-item"><Link to='/' className="nav-link">About</Link></li>
-      </ul>
-    </header>
+    <Header />
     <div className='container'>
       {/* <TopBar /> */}
       <div className="py-5 text-center">
         <h2>시험 목록</h2>
-        <p className="lead">이전에 생성되었던 시험 목록입니다</p>
+        <p className="lead mt-4">이전에 생성되었던 시험 목록입니다</p>
       </div>
       {/* <Table headerName={['No.', '시험 제목', '게시 일자']}>
         {item}

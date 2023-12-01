@@ -32,6 +32,10 @@ export default function Main(){
     window.location.href = '/createExam'
   };
 
+  const doExam = () => {
+    window.location.href = '/doExam'
+  }
+
   return (
     <>
     <div className="container py-4">
@@ -61,6 +65,20 @@ export default function Main(){
             <h2>시험 불러오기</h2>
             <p>이전에 생성했던 시험 목록을 확인할 수 있습니다. 다양한 기능도 확인해보세요!</p>
             <button className="btn btn-outline-secondary" type="button" onClick={pastExam}>불러오기</button>
+          </div>
+        </div>
+        <div className="col-md-6 mt-3">
+          <div className="h-100 p-5 bg-body-tertiary border rounded-3">
+            <h2>시험 응시하기</h2>
+            <p>학생들은 시험에 응시할 수 있습니다! 좋은 점수를 기대할게요 화이팅!</p>
+            <button className="btn btn-outline-secondary" type="button" onClick={doExam}>응시하기</button>
+          </div>
+        </div>
+        <div className="col-md-6 mt-3">
+          <div className="h-100 p-5 text-bg-dark rounded-3">
+            <h2>FAQ / About</h2>
+            <p>미라클을 처음 사용해보신다면 참고해보세요~</p>
+            <button className="btn btn-outline-light" type="button" onClick={createExam}>FAQ / About</button>
           </div>
         </div>
       </div>

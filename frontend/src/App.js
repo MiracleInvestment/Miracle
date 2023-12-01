@@ -9,7 +9,8 @@ import DetailExam from './examinfo/DetailExam';
 import CreateExam from './examcreate/CreateExam';
 import Result from './examcreate/Result';
 import StudentScore from './examinfo/StudentScore';
-import DoExam from './doexam/DoExam'
+import DoExam from './doexam/DoExam';
+import DoExamList from './doexam/DoExamList';
 
 function App() {
   return (
@@ -22,7 +23,8 @@ function App() {
         <Route path="/detailExam/:id/studentScores" element={<StudentScore />} />
         <Route path="/createExam" element={<CreateExam />} />
         <Route path="/result" element={<Result />} />
-        <Route path="/doexam/:examNo" element={<DoExam />} />
+        <Route path="/doExam" element={<DoExamList/>} />
+        <Route path="/doExam/:id" element={<DoExam />} />
       </Routes>
     </BrowserRouter>
   );

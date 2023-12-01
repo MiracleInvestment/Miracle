@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import '../css/DetailExam.css';
 import '../dist/css/bootstrap.min.css';
 import Footer from '../header/Footer';
 import JumboTron from '../header/JumboTron';
+import Header from '../header/Header2';
 import moment from 'moment';
 
 const GetQuestion = ({id}) => {
@@ -61,16 +62,7 @@ const DetailExam = ({id}) =>  {
 
   return (
     <>
-    <header className="d-flex justify-content-center py-3">
-      <ul className="nav nav-pills">
-          {/* <li className="nav-item"><a href="#" className="nav-link">Home</a></li> */}
-        <li className="nav-item"><Link to='/main' className='nav-link'>Home</Link></li> 
-        <li className="nav-item"><Link to='/createExam' className="nav-link">시험 생성하기</Link></li>
-        <li className="nav-item"><Link to='/callPastExam' className="nav-link active" aria-current="page">시험 불러오기</Link></li>
-        <li className="nav-item"><Link to='/' className="nav-link">FAQ</Link></li>
-        <li className="nav-item"><Link to='/' className="nav-link">About</Link></li>
-      </ul>
-    </header>
+    <Header />
     <div className='container'>
       <div className="py-5 text-center">
         <h2>시험 상세 정보</h2>

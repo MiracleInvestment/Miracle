@@ -1,11 +1,13 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import {ko} from 'date-fns/esm/locale';
 import '../dist/css/bootstrap.min.css';
 import '../css/Scoring.css';
 import 'react-datepicker/dist/react-datepicker.css';
-import axios from 'axios';
+import Header from '../header/Header';
+
 
 const GetData = () => {
   const [data, setData] = useState([]);
@@ -36,7 +38,8 @@ function CreateExam() {
   const [endDate, setEndDate] = useState(new Date()); // 종료 날짜
   const [questionText, setQuestionText] = useState("");
   const [modelAnswer, setModelAnswer] = useState("");
-  const [keywords, setKeywords] = useState("");
+  // const [keywords, setKeywords] = useState("");
+  const keywords = "";
 
   const lastPK = GetData();
 
@@ -146,21 +149,12 @@ function CreateExam() {
 
   return (
     <>
-    <header className="d-flex justify-content-center py-3">
-      <ul className="nav nav-pills">
-          {/* <li className="nav-item"><a href="#" className="nav-link">Home</a></li> */}
-        <li className="nav-item"><Link to='/main' className='nav-link'>Home</Link></li> 
-        <li className="nav-item"><Link to='/createExam' className="nav-link active" aria-current="page">시험 생성하기</Link></li>
-        <li className="nav-item"><Link to='/callPastExam' className="nav-link">시험 불러오기</Link></li>
-        <li className="nav-item"><Link to='/' className="nav-link">FAQ</Link></li>
-        <li className="nav-item"><Link to='/' className="nav-link">About</Link></li>
-      </ul>
-    </header>
+    <Header />
     <div className="containerScoring">
       {/* 페이지 상단 */}
       <div className="py-5 text-center">
         <h2>시험 생성하기</h2>
-        <p className="lead">시험 생성하기 페이지입니다. 시험에 관한 상세정보를 입력해주시면 됩니다.</p>
+        <p className="lead mt-4">시험 생성하기 페이지입니다. 시험에 관한 상세정보를 입력해주시면 됩니다.</p>
       </div>
       {/* 페이지 중간부 */}
       <div className="row g-5">
