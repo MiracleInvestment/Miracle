@@ -38,8 +38,8 @@ function CreateExam() {
   const [endDate, setEndDate] = useState(new Date()); // 종료 날짜
   const [questionText, setQuestionText] = useState("");
   const [modelAnswer, setModelAnswer] = useState("");
-  // const [keywords, setKeywords] = useState("");
-  const keywords = "";
+  const [keywords, setKeywords] = useState("");
+  // const keywords = "";
 
   const lastPK = GetData();
 
@@ -88,7 +88,6 @@ function CreateExam() {
   const addQuestion = () => {
     const number = count.count+1;
     setCount({...count, count:number, [`question${number}`]: ""});
-    
   };
 
   const delQuestion = (i) => {
@@ -97,6 +96,7 @@ function CreateExam() {
     for (let n = 1; n < newCount.count; n++) {
       if (n === i) {
         delete newCount[`question${n}`];
+        // delete newCount[isEditing];
       } else {
         Object.defineProperty(
           newCount,
@@ -104,11 +104,17 @@ function CreateExam() {
           Object.getOwnPropertyDescriptor(newCount, "question" + n)
         );
         delete newCount[`question${n}`];
+        // delete newCount[isEditing];
       }
     }
 
     setCount({...newCount, count: count.count-1});
   };
+
+  // const registerQuestion = () => {
+  //   handleQuestion();
+  //   addQuestion();
+  // }
 
   const handleQuestion = async () => {
     try {
@@ -141,6 +147,7 @@ function CreateExam() {
     } catch(error) {
       console.error('Error Creating exam:', error.message);
     }
+    addQuestion();
   }
 
   const handleNameButton = () => {
@@ -193,6 +200,7 @@ function CreateExam() {
                     return (
                       <div className="container mb-3">
                         <div className="list-group">
+                          {/* {item.isEditing ? 1 : 0} */}
                           <div className="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
                             <div className="d-flex gap-2 w-100 justify-content-between">
                               <h6 className="mb-2">문제 {i+1}</h6>
@@ -203,7 +211,6 @@ function CreateExam() {
                             <div className="d-flex gap-2 w-100 justify-content-between">
                               <div className="d-flex gap-2 w-100 justify-content-between">
                                 <h6 className="mb-2">모범답안</h6>
-                                  {/* <p className="mb-0 opacity-75">Some placeholder content in a paragraph.</p>  */}
                                 <textarea className="col-md-10" onChange={(e) => setModelAnswer(e.target.value)}/>
                               </div>
                             </div>
@@ -212,16 +219,15 @@ function CreateExam() {
                             <div className="d-flex gap-2 w-100 justify-content-between">
                               <div className="d-flex gap-2 w-100 justify-content-between">
                                 <h6 className="mb-2">핵심 키워드</h6>
-                                {/* <input type="text" value={keyword} onChange={e=>setKeyword(e.target.value)}
-                                onkeyDown={e=>(e.key==='Enter' ? addKeyword() : null)} 
-                                />
-                                <button>추가</button> */}
+                                <input className="col-md-10" onChange={(e) => setKeywords(e.target.value)}/>
                               </div>
                             </div>
                           </div>
                           <div className="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                            <button className="btn btn-dark rounded-custonm-pill px-3 mb-3" type="button" onClick={handleQuestion}>확인</button>
+                            <button className="btn btn-dark rounded-custonm-pill px-3" type="button" onClick={handleQuestion}>확인</button>
+                            <button className="btn btn-secondary rounded-custonm-pill px-3" type="button" onClick={handleQuestion}>수정</button>
                           </div>
+                          {/* {item.isEditing ? <p>문제가 입력되었습니다</p> : ''} */}
                         </div>
                       </div>
                     );
@@ -297,6 +303,8 @@ const Intro = () => {
           <div>
             <h6 className='my-0'>키워드</h6>
             <small className='text-body-secondary'>답안에 필수로 들어가야 할 키워드를 입력해주세요. 키워드까지 입력하셨다면 확인 버튼을 눌러 문제를 저장해주세요</small>
+            <br />
+            <small className='example-color'>ex) 초승달, 손톱</small>
           </div>
         </li>
         <li className='list-group-item d-flex justify-content-between lh-sm'>

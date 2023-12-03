@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, DateTime, String, Text, ForeignKey
 # from sqlalchemy.sql import text
 from db.session import Base
-from sqlalchemy.orm import relationship
+# from sqlalchemy.orm import relationship
 
 class Exam(Base):
   __tablename__ = "exam"
@@ -23,4 +23,13 @@ class ExamQuestion(Base):
   Keywords = Column(String)
   
   # exam = relationship("Exam", back_populates="questions")
+
+class StudentInfo(Base):
+  __tablename__ = "student_info"
   
+  ID = Column(Integer, primary_key=True, autoincrement=True)
+  StudentID = Column(String)
+  ExamName = Column(String)
+  QuestionID = Column(Integer)
+  StudentAnswer = Column(String)
+  # Score = Column(Integer)
