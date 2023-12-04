@@ -11,6 +11,7 @@ import Result from './examcreate/Result';
 import StudentScore from './examinfo/StudentScore';
 import DoExam from './doexam/DoExam';
 import DoExamList from './doexam/DoExamList';
+import Loading from './loading/Loading';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/result" element={<Result />} />
         <Route path="/doExam" element={<DoExamList/>} />
         <Route path="/doExam/:id" element={<DoExam />} />
+        <Route path="/loading/" element={<Loading />} />
       </Routes>
     </BrowserRouter>
   );

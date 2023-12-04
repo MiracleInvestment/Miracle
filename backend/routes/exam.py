@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from db.session import Base, SessionLocal
 from db.connection import get_db
 from sqlalchemy.orm import Session
-from sqlalchemy import select
+from sqlalchemy import select, insert
 from dbModel.examModel import Exam, ExamQuestion, StudentInfo
 from typing import List
 # from fastapi.middleware.cors import CORSMiddleware
@@ -36,9 +36,9 @@ class ExamQuestionResponse(BaseModel):
   ModelAnswer: str
   Keywords: str
 
-class StudentInfo(BaseModel):
+class StudentInfoCreate(BaseModel):
   StudentID: str
-  ExamName: str
+  ExamID: int
   QuestionID: int
   StudentAnswer: str
   
@@ -48,7 +48,7 @@ class StudentInfo(BaseModel):
 class StudentInfoResponse(BaseModel):
   ID: int
   StudentID: str
-  ExamName: str
+  ExamID: int
   QuestionID: int
   StudentAnswer: str
 
@@ -129,19 +129,19 @@ async def getQuestions(id : int, db : Session=Depends(get_db)):
 
 # DoExam
 @ex_router.post("/{examId}/submitStudentAnswer")
-async def submitAnswer(answers: List[StudentInfo], db:Session=Depends(get_db)):
+async def submitAnswer(answer: StudentInfoCreate, db:Session=Depends(get_db)):
   try:
-    for answer in answers:
-      student_answer = StudentInfo(**answer.dict())
-      db.add(student_answer)
-      # db.refresh(student_answer)
-      # student_answers.append(student_answer)
+    student_answer = StudentInfo(
+        StudentID = answer.StudentID,
+        ExamID = answer.ExamID,
+        QuestionID = answer.QuestionID,
+        StudentAnswer = answer.StudentAnswer
+      )
+    db.add(student_answer)
     db.commit()
-    return {"message": "Student answers submitted successfully"}
+    return {"message": "Student answers submitted successfully", "data": answer}
   except Exception as e:
     db.rollback()
     raise HTTPException(status_code=500, detail=str(e))
   finally:
     db.close()
-  
-  # return student_answers

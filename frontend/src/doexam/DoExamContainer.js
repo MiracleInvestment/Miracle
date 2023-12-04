@@ -1,5 +1,5 @@
 const DoExamContainer = ({no, title, date}) => {
-  const uri = `http://localhost:3000/doExam/${no}`;
+  const uri = `http://${process.env.SERVER_ADDRESS}:3000/doExam/${no}`;
   return (
     <>
     <div className="bg-body-tertiary p-5 rounded mt-3">

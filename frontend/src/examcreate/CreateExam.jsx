@@ -12,7 +12,7 @@ import Header from '../header/Header';
 const GetData = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    axios.get('http://localhost:8000/exam/getLastPK')
+    axios.get(`http://${process.env.SERVER_ADDRESS}:8000/exam/getLastPK`)
     .then((response) => {
       if(response.status !== 200) {
         throw new Error('Network response was not ok');
@@ -44,7 +44,7 @@ function CreateExam() {
   const lastPK = GetData();
 
   const axiosInstance = axios.create({
-    baseURL: 'http://localhost:8000',
+    baseURL: `http://${process.env.SERVER_ADDRESS}:8000`,
     withCredentials: true,  // 필요에 따라 설정
   });
 
@@ -125,7 +125,7 @@ function CreateExam() {
         'Keywords' : keywords,
       }
 
-      const questionsResponse = await axiosInstance.post('http://localhost:8000/exam/createQuestion', questionsData);
+      const questionsResponse = await axiosInstance.post(`http://${process.env.SERVER_ADDRESS}:8000/exam/createQuestion`, questionsData);
       console.log('Questions created:', {questions: questionsResponse.data});
       
     } catch(error) {
@@ -135,7 +135,7 @@ function CreateExam() {
   
   const handleSubmit = async () => {
     try {
-      const examResponse = await axios.post('http://localhost:8000/exam/create', {
+      const examResponse = await axios.post(`http://${process.env.SERVER_ADDRESS}:8000/exam/create`, {
         ExamName: name,
         ExamStartDate: startDate,
         ExamEndDate: endDate,
@@ -187,6 +187,10 @@ function CreateExam() {
                     <p >{name}<button onClick={handleNameButton}>수정</button></p>
                   </div>
                 )}
+              </div>
+              <div className="col-12 mb-3">
+                <h5 className="mb-3">시험 상세설명</h5>
+                <input type="text" id="detail" placeholder="시험 상세 설명을 입력하세요" className="form-control"/>
               </div>
               {/* 문제 추가 부분 */}
               <div className="col-12">

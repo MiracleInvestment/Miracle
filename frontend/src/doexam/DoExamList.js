@@ -2,14 +2,13 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Header from '../header/Header3';
 import Footer from '../header/Footer';
-// import Album from '../header/Album';
 import Container from './DoExamContainer';
 import moment from 'moment';
 
 function GetData() {
   const [data, setData] = useState([]);
   useEffect(() => {
-    axios.get('http://localhost:8000/exam/lists')
+    axios.get(`http://${process.env.SERVER_ADDRESS}:8000/exam/lists`)
     .then((response) => {
       if(response.status !== 200) {
         throw new Error('Network response was not ok');
@@ -27,7 +26,6 @@ function GetData() {
 
 const DoExamList = () => {
   const exams = GetData();
-  // const date = moment(exams.ExamStartDate).format('YYYY-MM-DD');
 
   return (
     <>

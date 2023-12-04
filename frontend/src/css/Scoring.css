@@ -29,6 +29,11 @@
   /* color: #BDBDBD;  */
   color: #a4a4a4;
 }
+.doExamH5 {
+  text-align: center;
+  /* font-size: 1rem; */
+  /* justify-content: center; */
+}
 /* .example-custom-input {
   background-color: #282c34;
   color: white;

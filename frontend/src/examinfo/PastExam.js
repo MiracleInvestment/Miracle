@@ -9,7 +9,7 @@ import Header from '../header/Header2';
 function GetData() {
   const [data, setData] = useState([]);
   useEffect(() => {
-    axios.get('http://localhost:8000/exam/lists')
+    axios.get(`http://${process.env.SERVER_ADDRESS}:8000/exam/lists`)
     .then((response) => {
       if(response.status !== 200) {
         throw new Error('Network response was not ok');

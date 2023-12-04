@@ -29,7 +29,7 @@ class StudentInfo(Base):
   
   ID = Column(Integer, primary_key=True, autoincrement=True)
   StudentID = Column(String)
-  ExamName = Column(String)
+  ExamID = Column(Integer)
   QuestionID = Column(Integer)
   StudentAnswer = Column(String)
   # Score = Column(Integer)

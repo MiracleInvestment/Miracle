@@ -11,7 +11,7 @@ import moment from 'moment';
 const GetQuestion = ({id}) => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    axios.get(`http://localhost:8000/exam/${id}/getQuestions`)
+    axios.get(`http://${process.env.SERVER_ADDRESS}:8000/exam/${id}/getQuestions`)
     .then((response) => {
       if(response.status !== 200) {
         throw new Error('Network response was not ok');
@@ -30,7 +30,7 @@ const GetQuestion = ({id}) => {
 const GetExam = ({id}) => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    axios.get(`http://localhost:8000/exam/${id}/getExam`)
+    axios.get(`http://${process.env.SERVER_ADDRESS}:8000/exam/${id}/getExam`)
     .then((response) => {
       if(response.status !== 200) {
         throw new Error('Network response was not ok');

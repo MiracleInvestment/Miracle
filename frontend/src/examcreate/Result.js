@@ -15,7 +15,7 @@ import TableColumn from '../table/TableColumn';
 function GetData() {
   const [data, setData] = useState({});
   useEffect(() => {
-    axios.get('http://localhost:8000/api/lists').then((response) => {
+    axios.get(`http://${process.env.SERVER_ADDRESS}:8000/api/lists`).then((response) => {
       setData(response.data);
     })
   }, []);
